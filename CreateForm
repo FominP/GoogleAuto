@@ -10,7 +10,7 @@ function createForm() {
     Logger.log(nameGroup);
     if (nameGroup != "") {
       var form = FormApp.create("Мониторинг качества образования").setTitle(nameGroup);
-      //form.setDestination(FormApp.DestinationType.SPREADSHEET, spreadSheet.getId())
+      form.setDestination(FormApp.DestinationType.SPREADSHEET, spreadSheet.getId())
 
 // создание вопросов
 
