@@ -36,7 +36,7 @@ function createForm() {
           }
         }
         var nameSeminarist = sheet.getRange(j, 5).getValue(); //nameSeminarist - имя семинариста
-        if (nameSeminarist not in nameLecturer) {
+        if (!(nameSeminarist in nameLecturer)) {
           massNameSeminarist = nameSeminarist.split("\n");
           if (massNameSeminarist.length == 1) {
           Logger.log(nameSeminarist, nameSubject),
