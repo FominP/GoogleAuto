@@ -1,0 +1,61 @@
+function createForm() {
+  const spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = spreadSheet.getActiveSheet();
+    var lastrow = sheet.getLastRow();
+
+// создание формы
+
+  for (var i = 2; i <= lastrow; i++) {
+    var nameGroup = sheet.getRange(i,2).getValue();
+    Logger.log(nameGroup);
+    if (nameGroup != "") {
+      var form = FormApp.create("Мониторинг качества образования").setTitle(nameGroup);
+      form.setDestination(FormApp.DestinationType.SPREADSHEET, spreadSheet.getId().setTitle(nameGroup))
+
+// создание вопросов
+
+      var checkFirstColumn = "";
+      var j = i;
+      while ((checkFirstColumn == nameGroup || checkFirstColumn == "") && j <= lastrow) {
+        var item = form.addGridItem();
+        var nameSubject = sheet.getRange(j, 3).getValue();
+        var nameLecturer = sheet.getRange(j, 4).getValue(); //nameLecturer - имя лектора
+        massNameLecturer = nameLecturer.split("\n");
+        if (massNameLecturer.length == 1) {
+          Logger.log(nameLecturer, nameSubject),
+          item.setTitle(nameLecturer)
+            .setRows(['Качество преподавания', 'Организация учебного процесса', 'Техническое сопровождение учебного процесса'])
+            .setColumns(['1', '2', '3', '4', '5']);
+        }
+        else {
+          for (var k = 0; k <= length.massNameLecturer; k++) {
+            Logger.log(massNameLecturer[k], nameSubject),
+          item.setTitle(massNameLecturer[k])
+            .setRows(['Качество преподавания', 'Организация учебного процесса', 'Техническое сопровождение учебного процесса'])
+            .setColumns(['1', '2', '3', '4', '5']);
+          }
+        }
+        var nameSeminarist = sheet.getRange(j, 5).getValue(); //nameSeminarist - имя семинариста
+        if (nameSeminarist not in nameLecturer) {
+          massNameSeminarist = nameSeminarist.split("\n");
+          if (massNameSeminarist.length == 1) {
+          Logger.log(nameSeminarist, nameSubject),
+          item.setTitle(nameSeminarist)
+            .setRows(['Качество преподавания', 'Организация учебного процесса', 'Техническое сопровождение учебного процесса'])
+            .setColumns(['1', '2', '3', '4', '5']);
+          }
+          else {
+            for (var k = 0; k <= length.massNameSeminarist; k++) {
+              Logger.log(massNameSeminarist[k], nameSubject),
+            item.setTitle(massNameSeminarist[k])
+              .setRows(['Качество преподавания', 'Организация учебного процесса', 'Техническое сопровождение учебного процесса'])
+              .setColumns(['1', '2', '3', '4', '5']);
+            } 
+          }
+        }
+        j = j + 1;
+        checkFirstColumn = sheet.getRange(j, 2).getValue()
+      } 
+    } 
+  }
+}
