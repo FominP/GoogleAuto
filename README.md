@@ -1,5 +1,5 @@
-# GoogleFormAuto
-Automatisation of Google Forms / Автоматизация Гугл-Форм
+# Google automation/Автоматизация на Google
+
 # EN
 This script is needed for transforming your Google Spreadsheet into multiple standardized Google Forms.
 ## How to use?
