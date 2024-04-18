@@ -40,3 +40,5 @@ function SetCalendar() {
     event.setDescription(trainingInfo)
 
     Utilities.sleep(50);
+  }
+}
